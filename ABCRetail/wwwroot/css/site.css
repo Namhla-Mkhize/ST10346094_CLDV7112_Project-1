@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+:root {
+    --abc-navy: #1E2A38;
+    --abc-navy-dark: #16202B;
+    --abc-amber: #D97706;
+    --abc-amber-dark: #B45309;
+    --abc-bg: #F7F8FA;
+    --abc-text: #1F2937;
+    --abc-muted: #6B7280;
+    --abc-border: #E5E7EB;
+}
+
+
+/* =========================
+   GLOBAL PAGE LAYOUT
+   ========================= */
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--abc-bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--abc-text);
+}
+
+
+    /*
+   Main content takes up the available
+   space on short pages.
+
+   On long pages, it grows naturally
+   with the content.
+*/
+    body > main {
+        flex: 1 0 auto;
+        width: 100%;
+    }
+
+
+    /*
+   IMPORTANT:
+   The footer is deliberately NOT fixed,
+   absolute, or sticky.
+
+   It remains in normal document flow.
+*/
+    body > .footer {
+        position: static !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        width: 100%;
+        flex: 0 0 auto;
+        background-color: #fff;
+        border-top: 1px solid var(--abc-border);
+        color: var(--abc-muted);
+        font-size: 0.85rem;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        z-index: auto !important;
+    }
+
+
+/* =========================
+   HEADINGS
+   ========================= */
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--abc-navy);
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    background-color: var(--abc-navy) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    color: #fff !important;
+}
+
+    .navbar-brand::before {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background-color: var(--abc-amber);
+        margin-right: 8px;
+        border-radius: 1px;
+    }
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-weight: 500;
+    padding: 0.4rem 0.9rem !important;
+    border-radius: 4px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link.active {
+        color: #fff !important;
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+
+
+/* =========================
+   PAGE CARD
+   ========================= */
+
+.page-card {
+    background-color: #fff;
+    border: 1px solid var(--abc-border);
+    border-radius: 8px;
+    padding: 1.75rem;
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+    .page-card h2 {
+        border-left: 3px solid var(--abc-amber);
+        padding-left: 0.75rem;
+        margin-bottom: 1.25rem;
+        font-size: 1.4rem;
+    }
+
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.btn-primary {
+    background-color: var(--abc-amber);
+    border-color: var(--abc-amber);
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: var(--abc-amber-dark);
+        border-color: var(--abc-amber-dark);
+    }
+
+.btn-outline-secondary {
+    border-color: var(--abc-border);
+    color: var(--abc-muted);
+}
+
+.btn-danger {
+    font-weight: 600;
+}
+
+
+/* =========================
+   PRODUCT TABLE
+   ========================= */
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+    .table thead th {
+        background-color: var(--abc-navy);
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        border: none;
+        padding: 0.75rem 1rem;
+    }
+
+        .table thead th:first-child {
+            border-top-left-radius: 6px;
+        }
+
+        .table thead th:last-child {
+            border-top-right-radius: 6px;
+        }
+
+    .table td {
+        vertical-align: middle;
+        padding: 0.75rem 1rem;
+        border-color: var(--abc-border);
+    }
+
+        .table td img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+
+/* =========================
+   FORMS
+   ========================= */
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--abc-navy);
+    margin-bottom: 0.3rem;
+}
+
+.form-control {
+    border-color: var(--abc-border);
+    padding: 0.55rem 0.75rem;
+}
+
+    .form-control:focus {
+        border-color: var(--abc-amber);
+        box-shadow: 0 0 0 0.2rem rgba(217, 119, 6, 0.15);
+    }
+
+
+/* =========================
+   ALERTS
+   ========================= */
+
+.alert-success {
+    border-left: 4px solid #15803D;
+    background-color: #F0FDF4;
+    color: #166534;
+    border-radius: 6px;
+}
+ 

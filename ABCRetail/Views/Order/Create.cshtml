@@ -1,0 +1,34 @@
+﻿@{
+    var products = ViewBag.Products as List<ABCRetail.Models.Product>;
+}
+
+<div class="page-card">
+    <h2>Place an Order</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label class="form-label">Select Product</label>
+            <select name="productId" class="form-control" id="productSelect" onchange="setProductName()">
+                @foreach (var product in products)
+                {
+                    <option value="@product.RowKey" data-name="@product.ProductName">@product.ProductName</option>
+                }
+            </select>
+        </div>
+        <input type="hidden" name="productName" id="productNameHidden" value="@(products.Count > 0 ? products[0].ProductName : "")" />
+        <button type="submit" class="btn btn-primary">Place Order</button>
+    </form>
+</div>
+
+<script>
+    function setProductName() {
+        var select = document.getElementById("productSelect");
+        var selected = select.options[select.selectedIndex];
+        document.getElementById("productNameHidden").value = selected.getAttribute("data-name");
+    }
+</script>
